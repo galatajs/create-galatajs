@@ -1,14 +1,17 @@
 {
   "name": "create-istanbul",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An easy way to start a Istanbul project",
   "homepage": "https://github.com/istanbulnode/create-istanbul#readme",
+  "type": "module",
   "keywords": [
     "istanbul",
     "typescript",
     "creator"
   ],
-  "author": "Sami Salih İBRAHİMBAŞ <info@ssibrahimbas.com>",
+  "author": {
+    "name": "Sami Salih İBRAHİMBAŞ <info@ssibrahimbas.com>"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -17,29 +20,30 @@
   "bugs": {
     "url": "https://github.com/istanbulnode/create-istanbul/issues"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "bin": {
-    "create-istanbul": "index.js"
+    "create-istanbul": "main.cjs"
   },
   "files": [
-    "dist/**/*"
+    "main.cjs"
   ],
   "engines": {
     "node": "^14.16.0 || >=16.0.0"
   },
   "scripts": {
-    "clear": "del-cli ./dist/*",
-    "build": "npm run clear && tsc"
+    "build": "zx ./src/scripts/build.mjs"
   },
   "dependencies": {
-    "prompts": "^2.4.2",
-    "gradient-string": "^2.0.1"
+    "gradient-string": "^2.0.1",
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
     "@types/gradient-string": "^1.1.2",
     "@types/node": "^18.0.3",
+    "@types/prompts": "^2.0.14",
+    "esbuild": "^0.14.49",
+    "esbuild-plugin-license": "^1.2.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "zx": "^7.0.7"
   }
 }

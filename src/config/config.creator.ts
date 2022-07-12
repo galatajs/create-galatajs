@@ -13,7 +13,7 @@ const createPrompt = (
   return {
     name: name,
     message: message,
-    type: (prev) =>
+    type: (prev: any) =>
       options && options.prev
         ? options.prev(prev)
         : options
