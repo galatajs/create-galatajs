@@ -22,9 +22,6 @@ import { packages } from "./packages/package.service";
 async function init() {
   console.log(label);
 
-  console.info("Not implemented yet");
-  process.exit(0);
-  return;
   const defaultProjectName = "istanbul-project";
   const targetDir = process.argv.slice(2)[0] || defaultProjectName;
   let config: Config = {};

@@ -16,6 +16,6 @@ const istanbulGradient = gradient([
 ]);
 
 const text =
-  "Istanbul - The Progressive And Flexible Full Stack NodeJS Framework";
+  "Istanbul - The Progressive, Flexible And Friendly Full Stack NodeJS Framework";
 
 export const label: string = `\n${istanbulGradient(text)}\n`;
