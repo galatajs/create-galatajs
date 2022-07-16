@@ -21,6 +21,7 @@ import { JavaScriptType } from "./types/types";
 import { createAppPackage } from "./packages/app";
 import { createProductApp } from "./examples/product/product.app";
 import { createPackageJson } from "./writers/package-json.writer";
+import { createConfig } from "./writers/config.writer";
 
 async function init() {
   console.log(label);
@@ -99,6 +100,7 @@ async function init() {
     ? "yarn"
     : "npm";
 
+  createConfig(opts.type, { root: cwd, destination: root });
   packageJson.write();
   mainFile.write();
   productApp.write();
