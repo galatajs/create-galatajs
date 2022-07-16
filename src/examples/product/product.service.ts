@@ -24,7 +24,7 @@ export const createProductService = (
         "export class ProductService {",
         " async createProduct(product: Product): Promise<Product> {",
         `  ${registers.join("\n\t")}${
-          registers.length > 0 ? "\n" : null
+          registers.length > 0 ? "\n" : ""
         }\treturn product;`,
         " }",
         "",

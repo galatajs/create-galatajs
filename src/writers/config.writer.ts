@@ -12,15 +12,9 @@ export const createConfig = (type: JavaScriptType, options: Options) => {
 };
 
 const createTsConfig = (root: string, destination: string): void => {
-  fs.copyFileSync(
-    `${root}/src/template/tsconfig.json`,
-    `${destination}/tsconfig.json`
-  );
+  fs.copyFileSync(`${root}/tsconfig.json`, `${destination}/tsconfig.json`);
 };
 
 const createJsConfig = (root: string, destination: string): void => {
-  fs.copyFileSync(
-    `${root}/src/template/jsconfig.json`,
-    `${destination}/jsconfig.json`
-  );
+  fs.copyFileSync(`${root}/jsconfig.json`, `${destination}/jsconfig.json`);
 };

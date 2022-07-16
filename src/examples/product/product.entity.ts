@@ -15,16 +15,17 @@ export const createProductEntity = (
     body: {
       typescript: [
         "export class Product {",
-        "  id: number;",
-        "  name: string;",
-        "  price: number;",
+        "  constructor(public id: number, public name: string, public price: number) {",
+        "  }",
         "}",
       ],
       es6: [
         "export class Product {",
-        "  id: number;",
-        "  name: string;",
-        "  price: number;",
+        "  constructor({ id, name, price }) {",
+        "    this.id = id;",
+        "    this.name = name;",
+        "    this.price = price;",
+        "  }",
         "}",
       ],
       commonjs: [

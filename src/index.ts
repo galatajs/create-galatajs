@@ -100,7 +100,7 @@ async function init() {
     ? "yarn"
     : "npm";
 
-  createConfig(opts.type, { root: cwd, destination: root });
+  createConfig(opts.type, { root: path.resolve(__dirname, 'template'), destination: root });
   packageJson.write();
   mainFile.write();
   productApp.write();
