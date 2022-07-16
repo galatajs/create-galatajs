@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@istanbul/rules": "^0.0.1",
-    "@istanbul/core": "^0.0.6"
-  }
-}

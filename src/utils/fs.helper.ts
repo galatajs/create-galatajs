@@ -46,3 +46,9 @@ export const getFileIsExist = (file: string): any => {
   if (fs.existsSync(file)) return fs.readFileSync(file, "utf-8");
   return null;
 };
+
+export const createDirectoriesToDir = (dir: string): void => {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+  }
+};
