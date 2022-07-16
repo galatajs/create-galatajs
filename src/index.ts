@@ -58,6 +58,8 @@ async function init() {
 
   console.log(`\nScaffolding project in ${root}...`);
 
+  const name = targetDir && targetDir !== "." ? targetDir : defaultProjectName;
+
   const opts: {
     type: JavaScriptType;
     name: string;
@@ -65,7 +67,7 @@ async function init() {
     version: string;
     extension: string;
   } = {
-    name: targetDir && targetDir !== "." ? targetDir : defaultProjectName,
+    name: name,
     root: root,
     version: "0.0.0",
     extension: config.needsTypeScript ? "ts" : "js",

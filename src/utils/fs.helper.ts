@@ -47,8 +47,14 @@ export const getFileIsExist = (file: string): any => {
   return null;
 };
 
-export const createDirectoriesToDir = (dir: string): void => {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
+export const createDirectoriesToDir = (dir: string, root: string): void => {
+  const folders = dir.split("/");
+  let currentDir = root;
+  for (const folder of folders) {
+    if (folder === "") continue;
+    currentDir += "/" + folder;
+    if (!fs.existsSync(currentDir)) {
+      fs.mkdirSync(currentDir);
+    }
   }
 };

@@ -32,24 +32,21 @@ export const createProductModule = (
       typescript: [
         'export const productModule = createModule("product", {',
         "  providers: [",
-        "    ProductService,",
-        `    ${registers.join(",\n\t")}`,
+        `    ProductService${registers.join(",\n\t")}`,
         "  ],",
         "});",
       ],
       es6: [
         'export const productModule = createModule("product", {',
         "  providers: [",
-        "    ProductService,",
-        `    ${registers.join(",\n\t")}`,
+        `    ProductService${registers.join(",\n\t")}`,
         "  ],",
         "});",
       ],
       commonjs: [
         'const productModule = createModule("product", {',
         "  providers: [",
-        "    ProductService,",
-        `    ${registers.join(",\n\t")}`,
+        `    ProductService${registers.join(",\n\t")}`,
         "  ],",
         "});",
       ],
@@ -70,19 +67,19 @@ export const createProductModule = (
     },
     getContent() {
       let content: string = "";
-      if (this.imports && this.imports[type]) {
-        content += this.imports[type].join("\n") + "\n";
+      if (this.imports && this.imports[type] && this.imports[type].length > 0) {
+        content += this.imports[type].join("\n") + "\n\n";
       }
-      if (this.body && this.body[type]) {
-        content += this.body[type].join("\n") + "\n";
+      if (this.body && this.body[type] && this.body[type].length > 0) {
+        content += this.body[type].join("\n") + "\n\n";
       }
-      if (this.exports && this.exports[type]) {
-        content += writeExports(type, this.exports[type]) + "\n";
+      if (this.exports && this.exports[type] && this.exports[type].length > 0) {
+        content += writeExports(type, this.exports[type]) + "\n\n";
       }
       return content;
     },
     write() {
-      const file = `${options.root}product.module.${options.extension}`;
+      const file = `${options.root}/product.module.${options.extension}`;
       writeFile(file, this.getContent());
     },
   };

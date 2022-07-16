@@ -1,6 +1,7 @@
 import { Package } from "../../packages/package";
 import { JavaScriptType } from "../../types/types";
 import { createDirectoriesToDir } from "../../utils/fs.helper";
+import { writeFileFromExample } from "../../writers/external.writer";
 import { BaseApp } from "../app.type";
 import { createProductEntity } from "./product.entity";
 import { createProductModule } from "./product.module";
@@ -15,15 +16,23 @@ export const createProductApp = (
   type: JavaScriptType,
   options: CreateProductAppOptions
 ): BaseApp => {
-  options.root += "product";
-  const entity = createProductEntity(type, options);
-  const service = createProductService(type, options);
-  const module = createProductModule(type, options);
+  const path = "/src/product";
+  const root = options.root + path;
+  const entity = createProductEntity(type, { ...options, root });
+  const service = createProductService(type, { ...options, root });
+  const module = createProductModule(type, { ...options, root });
   return {
     name: "product",
     addFromPackage(pkg: Package) {
       if (pkg.files && pkg.files.examples) {
         for (const file of pkg.files.examples) {
+          if (file.unique) {
+            writeFileFromExample(type, file, {
+              root: options.root,
+              destination: path,
+              extension: options.extension,
+            });
+          }
         }
       }
     },
@@ -31,7 +40,7 @@ export const createProductApp = (
       return "";
     },
     write() {
-      createDirectoriesToDir(options.root);
+      createDirectoriesToDir(path, options.root);
       entity.write();
       service.write();
       module.write();

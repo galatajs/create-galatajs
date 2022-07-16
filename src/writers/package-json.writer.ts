@@ -54,17 +54,21 @@ export const createPackageJson = (
       }
     },
     getContent() {
-      return JSON.stringify({
-        name: options.name,
-        version: options.version,
-        dependencies: this.dependencies,
-        devDependencies: this.devDependencies,
-        peerDependencies: this.peerDependencies,
-        optionalDependencies: this.optionalDependencies,
-      });
+      return JSON.stringify(
+        {
+          name: options.name,
+          version: options.version,
+          dependencies: this.dependencies,
+          devDependencies: this.devDependencies,
+          peerDependencies: this.peerDependencies,
+          optionalDependencies: this.optionalDependencies,
+        },
+        null,
+        2
+      );
     },
     write() {
-      writeFile(`${options.root}package.json`, this.getContent());
+      writeFile(`${options.root}/package.json`, this.getContent());
     },
   };
 };

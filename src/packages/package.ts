@@ -24,6 +24,7 @@ export type MainFile = BaseFile;
 export interface ExampleFile extends FullFile {
   name: string;
   unique: boolean;
+  fileName: string;
 }
 export type BaseFile = {
   imports?: CodeArray;

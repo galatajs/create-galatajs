@@ -29,7 +29,7 @@ export const createProductEntity = (
       ],
       commonjs: [
         "class Product {",
-        "   constructor(id: number, name: string, price: number) {",
+        "   constructor({ id, name, price }) {",
         "     this.id = id;",
         "     this.name = name;",
         "     this.price = price;",
@@ -44,16 +44,19 @@ export const createProductEntity = (
     },
     getContent() {
       let content: string = "";
-      if (this.body && this.body[type]) {
-        content += this.body[type].join("\n") + "\n";
+      if (this.imports && this.imports[type] && this.imports[type].length > 0) {
+        content += this.imports[type].join("\n") + "\n\n";
       }
-      if (this.exports && this.exports[type]) {
-        content += writeExports(type, this.exports[type]) + "\n";
+      if (this.body && this.body[type] && this.body[type].length > 0) {
+        content += this.body[type].join("\n") + "\n\n";
+      }
+      if (this.exports && this.exports[type] && this.exports[type].length > 0) {
+        content += writeExports(type, this.exports[type]) + "\n\n";
       }
       return content;
     },
     write() {
-      const file = `${options.root}product.entity.${options.extension}`;
+      const file = `${options.root}/product.entity.${options.extension}`;
       writeFile(file, this.getContent());
     },
   };

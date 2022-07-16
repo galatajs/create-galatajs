@@ -14,29 +14,45 @@ export const createProductService = (
 ): AppFileWithAdder => {
   const registers: Array<string> = [];
   return {
+    imports: {
+      typescript: ['import { Product } from "./product.entity"'],
+      es6: [],
+      commonjs: [],
+    },
     body: {
       typescript: [
         "export class ProductService {",
         " async createProduct(product: Product): Promise<Product> {",
-        `${registers.join("\n")}`,
-        "   return product;",
+        `  ${registers.join("\n\t")}${
+          registers.length > 0 ? "\n" : null
+        }\treturn product;`,
+        " }",
+        "",
+        " async getProductById(id: string) : Promise<Product | null> {",
+        "  return null;",
         " }",
         "}",
       ],
       es6: [
         "export class ProductService {",
         " async createProduct(product) {",
-        `${registers.join("\n")}`,
-        "   return product;",
+        `${registers.join("\n")}\treturn product;`,
+        " }",
+        "",
+        " async getProductById(id) {",
+        "  return null;",
         " }",
         "}",
       ],
       commonjs: [
         "class ProductService {",
         "  async createProduct(product) {",
-        `${registers.join("\n")}`,
-        "    return product;",
+        `${registers.join("\n")}\treturn product;`,
         "  }",
+        "",
+        " async getProductById(id) {",
+        "  return null;",
+        " }",
         "}",
       ],
     },
@@ -56,16 +72,19 @@ export const createProductService = (
     },
     getContent() {
       let content: string = "";
-      if (this.body && this.body[type]) {
-        content += this.body[type].join("\n") + "\n";
+      if (this.imports && this.imports[type] && this.imports[type].length > 0) {
+        content += this.imports[type].join("\n") + "\n\n";
       }
-      if (this.exports && this.exports[type]) {
-        content += writeExports(type, this.exports[type]) + "\n";
+      if (this.body && this.body[type] && this.body[type].length > 0) {
+        content += this.body[type].join("\n") + "\n\n";
+      }
+      if (this.exports && this.exports[type] && this.exports[type].length > 0) {
+        content += writeExports(type, this.exports[type]) + "\n\n";
       }
       return content;
     },
     write() {
-      const file = `${options.root}product.service.${options.extension}`;
+      const file = `${options.root}/product.service.${options.extension}`;
       writeFile(file, this.getContent());
     },
   };
