@@ -78,7 +78,8 @@ export const getResult = async (
       }),
       createPrompt("needsHttp", "Will your app include http server?"),
       // createPrompt("needsWebsocket", "Will your app include websocket server?"), // TODO! open when websocket package is available
-      createPrompt("needsEventEmitter", "Will you create in-app events?"),
+      /** // ? open when packages finished
+       * createPrompt("needsEventEmitter", "Will you create in-app events?"),
       createPrompt("needsI18n", "Will your app include i18n?"),
       createPrompt(
         "needsValidation",
@@ -107,6 +108,7 @@ export const getResult = async (
           },
         }
       ),
+       */
     ],
     {
       onCancel: () => {
