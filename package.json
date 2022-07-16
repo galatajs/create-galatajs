@@ -1,6 +1,6 @@
 {
   "name": "create-istanbul",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "An easy way to start a Istanbul project",
   "homepage": "https://github.com/istanbulnode/create-istanbul#readme",
   "keywords": [
@@ -23,7 +23,8 @@
     "create-istanbul": "main.cjs"
   },
   "files": [
-    "main.cjs"
+    "main.cjs",
+    "template"
   ],
   "engines": {
     "node": "^14.16.0 || >=16.0.0"
