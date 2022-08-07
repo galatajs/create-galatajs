@@ -1,4 +1,4 @@
-import { writeFile } from "./file.writer";
+import { writeExports, writeFile } from "./file.writer";
 import { ExampleFile } from "../packages/package";
 import { JavaScriptType } from "../types/types";
 import { createDirectoriesToDir } from "../utils/fs.helper";
@@ -28,7 +28,7 @@ export const writeFileFromExample = (
     content += file.footer[type].join("\n") + "\n\n";
   }
   if (file.exports && file.exports[type]) {
-    content += "\n" + file.exports[type].join("\n");
+    content += "\n" + writeExports(type, file.exports[type]);
   }
   createDirectoriesToDir(options.destination, options.root);
   writeFile(

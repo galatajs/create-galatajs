@@ -26,13 +26,21 @@ export interface ExampleFile extends FullFile {
   unique: boolean;
   fileName: string;
 }
+
 export type BaseFile = {
   imports?: CodeArray;
   exports?: CodeArray;
   registers?: CodeArray;
+  moduleRegisters?: {
+    imports?: CodeArray;
+    exports?: CodeArray;
+    registers?: CodeArray;
+    footer?: CodeArray;
+  };
   footer?: CodeArray;
 };
 export interface FullFile extends BaseFile {
   header?: CodeArray;
-  body?: CodeArray;
+  body?: CodeArray | (() => CodeArray);
+  importGetter?: () => CodeArray;
 }

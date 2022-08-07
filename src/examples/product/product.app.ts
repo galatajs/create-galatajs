@@ -24,6 +24,8 @@ export const createProductApp = (
   return {
     name: "product",
     addFromPackage(pkg: Package) {
+      module.addFromPackage(pkg);
+      service.addFromPackage(pkg);
       if (pkg.files && pkg.files.examples) {
         for (const file of pkg.files.examples) {
           if (file.unique) {

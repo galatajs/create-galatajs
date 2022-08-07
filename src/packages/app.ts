@@ -8,13 +8,13 @@ export const createAppPackage = (): Package => {
       packageJson: {
         dependencies: {
           typescript: {
-            "@istanbul/app": "^0.0.8",
+            "@istanbul/app": "^0.0.27",
           },
           commonjs: {
-            "@istanbul/app": "^0.0.8",
+            "@istanbul/app": "^0.0.27",
           },
           es6: {
-            "@istanbul/app": "^0.0.8",
+            "@istanbul/app": "^0.0.27",
           },
         },
         devDependencies: {

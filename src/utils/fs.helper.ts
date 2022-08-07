@@ -58,3 +58,9 @@ export const createDirectoriesToDir = (dir: string, root: string): void => {
     }
   }
 };
+
+export const createFolderNotExists = (dir: string): void => {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+  }
+};

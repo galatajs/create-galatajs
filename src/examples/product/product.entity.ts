@@ -12,7 +12,7 @@ export const createProductEntity = (
   options: CreateProductEntityOptions
 ): AppFile => {
   return {
-    body: {
+    body: () => ({
       typescript: [
         "export class Product {",
         "  constructor(public id: number, public name: string, public price: number) {",
@@ -37,7 +37,7 @@ export const createProductEntity = (
         "   }",
         "}",
       ],
-    },
+    }),
     exports: {
       typescript: [],
       es6: [],
@@ -48,8 +48,12 @@ export const createProductEntity = (
       if (this.imports && this.imports[type] && this.imports[type].length > 0) {
         content += this.imports[type].join("\n") + "\n\n";
       }
-      if (this.body && this.body[type] && this.body[type].length > 0) {
-        content += this.body[type].join("\n") + "\n\n";
+      let body = {};
+      if (this.body && typeof this.body === "function") {
+        body = this.body();
+      }
+      if (body && body[type] && body[type].length > 0) {
+        content += body[type].join("\n") + "\n\n";
       }
       if (this.exports && this.exports[type] && this.exports[type].length > 0) {
         content += writeExports(type, this.exports[type]) + "\n\n";

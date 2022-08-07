@@ -10,7 +10,11 @@ import * as fs from "fs";
 import * as path from "path";
 import { getResult } from "./config/config.creator";
 import { Config, ConfigNames } from "./config/config.type";
-import { doEmptyDirectory } from "./utils/fs.helper";
+import {
+  createDirectoriesToDir,
+  createFolderNotExists,
+  doEmptyDirectory,
+} from "./utils/fs.helper";
 import { label } from "./utils/gradient";
 import { bold, green } from "kolorist";
 import { getCommand } from "./utils/package.helper";
@@ -22,6 +26,7 @@ import { createAppPackage } from "./packages/app";
 import { createProductApp } from "./examples/product/product.app";
 import { createPackageJson } from "./writers/package-json.writer";
 import { createConfig } from "./writers/config.writer";
+import { createMainModuleFile } from "./examples/main.module";
 
 async function init() {
   console.log(label);
@@ -80,6 +85,10 @@ async function init() {
   };
   const packageJson = createPackageJson(opts.type, opts);
   const mainFile = createMainFile(opts.type, opts);
+  const mainModule = createMainModuleFile(opts.type, {
+    ...opts,
+    root: root + "/src",
+  });
 
   const productApp = createProductApp(opts.type, opts);
   const appPackage = createAppPackage();
@@ -91,6 +100,7 @@ async function init() {
     packageJson.addFromPackage(pkg);
     mainFile.addFromPackage(pkg);
     productApp.addFromPackage(pkg);
+    mainModule.addFromPackage(pkg);
   });
 
   const userAgent = process.env.npm_config_user_agent ?? "";
@@ -99,10 +109,14 @@ async function init() {
     : /yarn/.test(userAgent)
     ? "yarn"
     : "npm";
-
-  createConfig(opts.type, { root: path.resolve(__dirname, 'template'), destination: root });
+  createFolderNotExists(root);
+  createConfig(opts.type, {
+    root: path.resolve(__dirname, "template").replace("/src", ""),
+    destination: root,
+  });
   packageJson.write();
   mainFile.write();
+  mainModule.write();
   productApp.write();
 
   console.log(`\nDone. Now run:\n`);
