@@ -1,6 +1,6 @@
-# create-istanbul core license
+# create-galatajs core license
 
-create-istanbul is released under the MIT license:
+create-galatajs is released under the MIT license:
 
 MIT License
 
@@ -26,7 +26,7 @@ SOFTWARE.
 
 ## Licenses of bundled dependencies
 
-The published create-istanbul artifact additionally contains code with the following licenses:
+The published create-galatajs artifact additionally contains code with the following licenses:
 MIT
 
 ## Bundled dependencies

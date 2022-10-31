@@ -1,6 +1,6 @@
 import gradient from "gradient-string";
 
-const istanbulGradient = gradient([
+const galataGradient = gradient([
   {
     color: "#48cae4",
     pos: 0,
@@ -16,6 +16,6 @@ const istanbulGradient = gradient([
 ]);
 
 const text =
-  "Istanbul - The Progressive, Flexible And Friendly Full Stack NodeJS Framework";
+  "GalataJS - The Progressive, Flexible And Friendly Full Stack NodeJS Framework";
 
-export const label: string = `\n${istanbulGradient(text)}\n`;
+export const label: string = `\n${galataGradient(text)}\n`;

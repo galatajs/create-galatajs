@@ -8,13 +8,13 @@ export const createAppPackage = (): Package => {
       packageJson: {
         dependencies: {
           typescript: {
-            "@istanbul/app": "^0.0.27",
+            "@galatajs/app": "^0.1.1",
           },
           commonjs: {
-            "@istanbul/app": "^0.0.27",
+            "@galatajs/app": "^0.1.1",
           },
           es6: {
-            "@istanbul/app": "^0.0.27",
+            "@galatajs/app": "^0.1.1",
           },
         },
         devDependencies: {
@@ -29,9 +29,9 @@ export const createAppPackage = (): Package => {
       },
       main: {
         imports: {
-          typescript: ['import { createApp, App } from "@istanbul/app"'],
-          es6: ['import { createApp } from "@istanbul/app"'],
-          commonjs: ['const { createApp } = require("@istanbul/app")'],
+          typescript: ['import { createApp, App } from "@galatajs/app"'],
+          es6: ['import { createApp } from "@galatajs/app"'],
+          commonjs: ['const { createApp } = require("@galatajs/app")'],
         },
         registers: {
           typescript: ["const app : App = createApp()"],

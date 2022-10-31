@@ -1,10 +1,9 @@
 {
-  "name": "create-istanbul",
-  "version": "0.0.8",
-  "description": "An easy way to start a Istanbul project",
-  "homepage": "https://github.com/istanbulnode/create-istanbul#readme",
+  "name": "create-galatajs",
+  "version": "0.1.1",
+  "description": "An easy way to start a galatajs project",
+  "homepage": "https://github.com/galatajs/create-galatajs#readme",
   "keywords": [
-    "istanbul",
     "typescript",
     "creator"
   ],
@@ -14,13 +13,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/istanbulnode/create-istanbul.git"
+    "url": "git+https://github.com/galatajs/create-galatajs.git"
   },
   "bugs": {
-    "url": "https://github.com/istanbulnode/create-istanbul/issues"
+    "url": "https://github.com/galatajs/create-galatajs/issues"
   },
   "bin": {
-    "create-istanbul": "main.cjs"
+    "create-galatajs": "main.cjs"
   },
   "files": [
     "main.cjs",

@@ -39,14 +39,14 @@ await esbuild.build({
           file: "LICENSE",
           template(allDependencies) {
             const dependencies = allDependencies.filter(
-              (d) => d.packageJson.name !== "create-istanbul"
+              (d) => d.packageJson.name !== "create-galatajs"
             );
             const licenseText =
-              `# create-istanbul core license\n\n` +
-              `create-istanbul is released under the MIT license:\n\n` +
+              `# create-galatajs core license\n\n` +
+              `create-galatajs is released under the MIT license:\n\n` +
               CORE_LICENSE +
               `\n## Licenses of bundled dependencies\n\n` +
-              `The published create-istanbul artifact additionally contains code with the following licenses:\n` +
+              `The published create-galatajs artifact additionally contains code with the following licenses:\n` +
               [
                 ...new Set(
                   dependencies.map(

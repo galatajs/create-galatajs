@@ -8,21 +8,21 @@ export const createHttpPackage = (): Package => {
       packageJson: {
         dependencies: {
           typescript: {
-            "@istanbul/http": "^0.0.20",
+            "@galatajs/http": "^0.1.1",
           },
           commonjs: {
-            "@istanbul/http": "^0.0.20",
+            "@galatajs/http": "^0.1.1",
           },
           es6: {
-            "@istanbul/http": "^0.0.20",
+            "@galatajs/http": "^0.1.1",
           },
         },
       },
       main: {
         imports: {
-          typescript: ['import { createHttpServer } from "@istanbul/http"'],
-          es6: ['import { createHttpServer } from "@istanbul/http"'],
-          commonjs: ['const { createHttpServer } = require("@istanbul/http")'],
+          typescript: ['import { createHttpServer } from "@galatajs/http"'],
+          es6: ['import { createHttpServer } from "@galatajs/http"'],
+          commonjs: ['const { createHttpServer } = require("@galatajs/http")'],
         },
         registers: {
           typescript: ["app.register(createHttpServer())"],
@@ -51,13 +51,13 @@ export const createHttpPackage = (): Package => {
           },
           imports: {
             typescript: [
-              'import { createRouter, Request, Response } from "@istanbul/http"',
-              'import { OnAppStarted } from "@istanbul/app"',
+              'import { createRouter, Request, Response } from "@galatajs/http"',
+              'import { OnAppStarted } from "@galatajs/app"',
               'import { ProductService } from "./product.service"',
               'import { Product } from "./product.entity"',
             ],
-            es6: ['import { createRouter } from "@istanbul/http"'],
-            commonjs: ['const { createRouter } = require("@istanbul/http")'],
+            es6: ['import { createRouter } from "@galatajs/http"'],
+            commonjs: ['const { createRouter } = require("@galatajs/http")'],
           },
           body: {
             typescript: [

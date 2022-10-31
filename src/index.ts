@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * istanbul @create-istanbul
+ * galatajs @create-galatajs
  * Copyright(c) 2022 Sami Salih İBRAHİMBAŞ
  * MIT Licensed
  */
@@ -31,7 +31,7 @@ import { createMainModuleFile } from "./examples/main.module";
 async function init() {
   console.log(label);
 
-  const defaultProjectName = "istanbul-project";
+  const defaultProjectName = "galatajs-project";
   const targetDir = process.argv.slice(2)[0] || defaultProjectName;
   let config: Config = {};
 

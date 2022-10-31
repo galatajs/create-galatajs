@@ -41,15 +41,15 @@ export const createMainModuleFile = (
     }),
     importGetter: () => ({
       typescript: [
-        "import { createModule, Module } from '@istanbul/app'",
+        "import { createModule, Module } from '@galatajs/app'",
         "import { productModule } from './product/product.module'",
       ],
       es6: [
-        "import { createModule, Module } from '@istanbul/app'",
+        "import { createModule, Module } from '@galatajs/app'",
         "import { productModule } from './product/product.module'",
       ],
       commonjs: [
-        "const { createModule, Module } = require('@istanbul/app')",
+        "const { createModule, Module } = require('@galatajs/app')",
         "const { productModule } = require('./product/product.module')",
       ],
     }),

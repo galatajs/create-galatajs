@@ -2,17 +2,17 @@
 <br>
 <img src="https://avatars.githubusercontent.com/u/108695351?s=200&v=4" width="128" height="128">
 </p>
-<h3 align="center">@istanbul/create-istanbul</h3>
+<h3 align="center">@galatajs/create-galatajs</h3>
 <p align="center">
-  Creator package of <code>istanbul</code> framework. 
+  Creator package of <code>galatajs</code> framework. 
 </p>
 
 ### Usage
 
-Run this code in the directory where you want to create an `istanbul` project:
+Run this code in the directory where you want to create an `galatajs` project:
 
 ```bash
-npm init istanbul
+npm init galatajs
 ```
 
 and answer the questions asked of you. That's it.

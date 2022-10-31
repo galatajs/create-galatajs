@@ -17,17 +17,17 @@ export const createProductModule = (
   return {
     importGetter: () => ({
       typescript: [
-        'import { createModule } from "@istanbul/app"',
+        'import { createModule } from "@galatajs/app"',
         'import { ProductService } from "./product.service"',
         ...registererImports,
       ],
       es6: [
-        'import { createModule } from "@istanbul/app"',
+        'import { createModule } from "@galatajs/app"',
         'import { ProductService } from "./product.service"',
         ...registererImports,
       ],
       commonjs: [
-        'const { createModule } = require("@istanbul/app")',
+        'const { createModule } = require("@galatajs/app")',
         'const { ProductService } = require("./product.service")',
         ...registererImports,
       ],
